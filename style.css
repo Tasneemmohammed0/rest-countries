@@ -1,0 +1,112 @@
+:root {
+  /* Light mode colors */
+  --very-light-gray: hsl(0, 0%, 98%); /* background */
+  /* use white for elements */
+  --dark-blue: hsl(200, 15%, 8%); /* text */
+  --dark-grey: hsl(0, 0%, 52%); /* Input */
+
+  /* Dark mode colors */
+  --very-dark-blue: hsl(207, 26%, 17%); /* background */
+  --dark-blue: hsl(209, 23%, 22%); /* elements */
+  --white: hsl(0, 0%, 100%); /* text */
+
+  /* font weights */
+  --light: 300;
+  --normal: 600;
+  --bold: 800;
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Nunito Sans;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--very-light-gray);
+  font-family: Nunito Sans;
+}
+
+.button:hover {
+  opacity: 0.5;
+}
+
+/* ===== header styles ===== */
+.header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 45px;
+  padding: 0 3rem 0 3.5rem;
+  height: 75px;
+  width: 100%;
+  box-shadow: 1px 0px 10px hsl(0, 2%, 70%);
+}
+.header h2 {
+  font-weight: var(--bold);
+}
+
+.--btn-displayMode {
+  background-color: inherit;
+  border: none;
+  font-size: 1rem;
+}
+
+/* ===== search bar styles ===== */
+.search-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  box-shadow: 1px 0px 10px hsl(0, 9%, 87%);
+  border-radius: 8px;
+  margin-left: 3.5rem;
+  width: 380px;
+}
+
+.search-input {
+  border: none;
+  height: 45px;
+  flex: 1; /* takes up remaining space */
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.--btn-search {
+  background-color: inherit;
+  border: none;
+  margin: 0 1rem 0 1rem;
+}
+
+/* ===== filtering selector styles ===== */
+.select-filter {
+  background-color: white;
+  box-shadow: 1px 0px 10px hsl(0, 9%, 87%);
+  font-family: Nunito Sans;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  margin-right: 3.5rem;
+  height: 45px;
+  width: 150px;
+}
+.select-filter:focus {
+  outline: none;
+}
