@@ -33,7 +33,7 @@ html {
 
 body {
   background-color: var(--very-light-gray);
-  font-family: Nunito Sans;
+  /* font-family: Nunito Sans; */
 }
 
 .button:hover {
@@ -109,3 +109,5 @@ body {
 .select-filter:focus {
   outline: none;
 }
+
+/* ===== Countries container styles ===== */
