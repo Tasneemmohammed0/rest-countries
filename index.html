@@ -22,11 +22,21 @@
         <span>Dark Mode</span>
       </button>
     </div>
-		<form class="search">
-			<button class="button --btn-search">
-			<span class="fa-solid fa-magnifying-glass"></span>
-		</button>
-			<input type="text" class="search-input" placeholder="Search for a country...">
-		</form>
+		<div class="search-filter">
+			<form class="search">
+				<button class="button --btn-search">
+					<span class="fa-solid fa-magnifying-glass"></span>
+				</button>
+				<input type="text" class="search-input" placeholder="Search for a country...">
+			</form>
+			<select class="select-filter">
+				<option value="">Filter by Region</option>
+				<option value="Africa">Africa</option>
+				<option value="America">America</option>
+				<option value="Asia">Asia</option>
+				<option value="Europe">Europe</option>
+				<option value="Oceania">Oceania</option>
+			</select>
+		</div>
   </body>
 </html>
