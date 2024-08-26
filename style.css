@@ -111,3 +111,17 @@ body {
 }
 
 /* ===== Countries container styles ===== */
+.container-countries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin: 2.5rem 3.5rem;
+  gap: 50px;
+}
+
+.country-grid {
+  width: 250px;
+}
+
+.country-grid img {
+  width: 100%;
+}
