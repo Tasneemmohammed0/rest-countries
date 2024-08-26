@@ -62,12 +62,13 @@ body {
   font-size: 1rem;
 }
 
+/* ===== search bar styles ===== */
 .search-filter {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-/* ===== search bar styles ===== */
+
 .search {
   display: flex;
   align-items: center;
@@ -94,7 +95,7 @@ body {
   margin: 0 1rem 0 1rem;
 }
 
-/* ===== Filtering selector styles ===== */
+/* ===== filtering selector styles ===== */
 .select-filter {
   background-color: white;
   box-shadow: 1px 0px 10px hsl(0, 9%, 87%);
