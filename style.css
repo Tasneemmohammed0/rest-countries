@@ -118,3 +118,28 @@ body {
   gap: 50px;
   justify-items: center;
 }
+
+/* ===== Country grid styles ===== */
+.country-grid {
+  width: 270px;
+  height: 340px;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.country-grid img {
+  width: 100%;
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+}
+
+.country-name {
+  margin: 1.4rem 1.1rem;
+}
+.country-grid span {
+  font-weight: var(--normal);
+}
+
+.country-info {
+  margin: 1.4rem 1.1rem;
+}
