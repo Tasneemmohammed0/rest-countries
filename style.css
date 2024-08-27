@@ -177,19 +177,15 @@ body {
   margin-left: 3.4rem;
   margin-top: 5rem;
   display: flex;
-  /* flex-wrap: wrap; */
-  gap: 80px;
+  flex-wrap: wrap;
+  column-gap: 80px;
   align-items: center;
 }
 
 .country-details-container .country-img {
   margin: 0;
   width: 370px;
-  height: 250px;
-}
-
-.country-breif .country-name {
-  margin-top: 3rem;
+  height: 300px;
 }
 
 .country-info {
@@ -198,4 +194,14 @@ body {
   grid-template-rows: repeat(5, minmax(10px, 1fr));
   row-gap: 5px;
   column-gap: 70px;
+}
+
+.--btn-border-country {
+  background-color: white;
+  box-shadow: 1px 0px 5px hsl(0, 8%, 75%);
+  border-style: solid;
+  border-color: hsl(0, 2%, 88%);
+  border-radius: 0.2rem;
+  padding: 6px 25px;
+  margin-left: 0.3rem;
 }
