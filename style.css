@@ -36,8 +36,14 @@ body {
   /* font-family: Nunito Sans; */
 }
 
+.main-page {
+  display: none;
+  z-index: 1;
+}
+
 .button:hover {
   opacity: 0.5;
+  cursor: pointer;
 }
 
 /* ===== header styles ===== */
@@ -147,4 +153,19 @@ body {
 
 .country-info {
   margin: 1.4rem 1.1rem;
+}
+
+/* ===== Detailed page styles ===== */
+.detailed-page {
+  position: absolute;
+  z-index: 2;
+}
+.--btn-back {
+  position: relative;
+  left: 3.5rem;
+  background-color: white;
+  box-shadow: 2px 0px 10px hsl(0, 9%, 87%);
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  padding: 8px 25px;
 }
