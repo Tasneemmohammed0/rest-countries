@@ -37,7 +37,7 @@ body {
 }
 
 .main-page {
-  display: none;
+  display: 1;
   z-index: 1;
 }
 
@@ -160,11 +160,12 @@ body {
 .detailed-page {
   position: absolute;
   z-index: 2;
+  display: none;
 }
 .--btn-back {
   position: relative;
   left: 3.5rem;
-  background-color: white;
+  background-color: inherit;
   box-shadow: 2px 0px 10px hsl(0, 9%, 87%);
   border: 1px solid #ccc;
   border-radius: 0.3rem;
@@ -197,7 +198,7 @@ body {
 }
 
 .--btn-border-country {
-  background-color: white;
+  background-color: inherit;
   box-shadow: 1px 0px 5px hsl(0, 8%, 75%);
   border-style: solid;
   border-color: hsl(0, 2%, 88%);
