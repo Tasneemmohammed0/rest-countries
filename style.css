@@ -147,12 +147,13 @@ body {
 .country-name {
   margin: 1.4rem 1.1rem;
 }
-.country-grid span {
-  font-weight: var(--normal);
-}
 
 .country-info {
   margin: 1.4rem 1.1rem;
+}
+
+.country-info strong {
+  margin-right: 0.2rem;
 }
 
 /* ===== Detailed page styles ===== */
