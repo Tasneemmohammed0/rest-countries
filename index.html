@@ -19,33 +19,81 @@
   </head>
   <body>
     <div class="header">
-      <h2 style="font-family: Nunito Sans">Where in the world?</h2>
+      <h2>Where in the world?</h2>
       <button class="button --btn-displayMode">
         <span class="fa-regular fa-moon"></span>
         <span>Dark Mode</span>
       </button>
     </div>
-    <div class="search-filter">
-      <form class="search">
-        <button class="button --btn-search">
-          <span class="fa-solid fa-magnifying-glass"></span>
-        </button>
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Search for a country..."
-        />
-      </form>
-      <select class="select-filter">
-        <option value="">Filter by Region</option>
-        <option value="Africa">Africa</option>
-        <option value="America">America</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
-      </select>
-    </div>
 
-    <div class="container-countries"></div>
+    <section class="main-page">
+      <div class="search-filter">
+        <form class="search">
+          <button class="button --btn-search">
+            <span class="fa-solid fa-magnifying-glass"></span>
+          </button>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search for a country..."
+          />
+        </form>
+        <select class="select-filter">
+          <option value="">Filter by Region</option>
+          <option value="Africa">Africa</option>
+          <option value="America">America</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
+        </select>
+      </div>
+      <div class="container-countries">
+        <!-- <div class="country-grid">
+          <img
+            class="country-img"
+            src="images/Flag-Germany.webp"
+            alt="germany-flag"
+          />
+          <h3 class="country-name">Germany</h3>
+          <div class="country-info">
+            <p><strong>Population:</strong>81,770,900</p>
+            <p><strong>Region:</strong>Europe</p>
+            <p><strong>Capital:</strong>Berlin</p>
+          </div>
+        </div> -->
+      </div>
+    </section>
+    <section class="detailed-page">
+      <button class="button --btn-back">
+        <span class="fa-solid fa-arrow-left-long"></span>
+        <span style="margin-left: 0.3rem">Back</span>
+      </button>
+      <div class="country-details-container">
+        <!-- <img
+          class="country-img"
+          src="images/Flag-Germany.webp"
+          alt="germany-flag"
+        />
+        <div class="country-breif">
+          <h2 class="country-name">Germany</h2>
+          <div class="country-info">
+            <p><strong>Native Name:</strong>Germany</p>
+            <p><strong>Population:</strong>81,770,900</p>
+            <p><strong>Region:</strong>Europe</p>
+            <p><strong>Sub Region:</strong>Bavaria</p>
+            <p><strong>Capital:</strong>Berlin</p>
+            <p><strong>Region:</strong>Europe</p>
+            <p><strong>Tob Level Domain:</strong>.be</p>
+            <p><strong>Currencies:</strong>Euro</p>
+            <p><strong>Languages:</strong>German</p>
+          </div>
+          <div class="border-countries">
+            <strong>Border Countries:</strong>
+            <button class="button --btn-border-country">Belgium</button>
+            <button class="button --btn-border-country">France</button>
+          </div>
+        </div> -->
+      </div>
+    </section>
   </body>
 </html>
