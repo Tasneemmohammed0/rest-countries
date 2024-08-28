@@ -21,7 +21,6 @@ const fetchCountries = async function () {
             class="country-img"
             src="${country.flags.png}"
             alt="${country.name.common}-flag"
-            height="200"
           />
           <h3 class="country-name">${country.name.common}</h3>
           <div class="country-info">
