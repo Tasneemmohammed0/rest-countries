@@ -26,8 +26,8 @@ const fetchCountries = async function () {
 };
 
 // function to return country grid markup
-const generateMarkup = function(country) {
-  return = `
+const generateMarkup = function (country) {
+  return `
   <div class="country-grid">
       <img
         class="country-img"
@@ -43,8 +43,7 @@ const generateMarkup = function(country) {
         }</p>
       </div>
     </div>`;
-
-}
+};
 
 // Calling the function to fetch and render countries
 fetchCountries();
