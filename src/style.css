@@ -46,6 +46,11 @@ body {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* ===== header styles ===== */
 .header {
   background-color: white;
@@ -161,8 +166,6 @@ body {
 /* ===== Detailed page styles ===== */
 .detailed-page {
   position: absolute;
-  z-index: 2;
-  display: none;
 }
 .--btn-back {
   position: relative;
@@ -177,11 +180,10 @@ body {
 /* ===== Country details styles ===== */
 .country-details-container {
   position: relative;
-  margin-left: 3.4rem;
-  margin-top: 5rem;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 5rem 0 5rem 3.4rem;
   column-gap: 80px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -197,6 +199,11 @@ body {
   grid-template-rows: repeat(5, minmax(10px, 1fr));
   row-gap: 5px;
   column-gap: 70px;
+}
+
+.border-countries-container {
+  display: grid;
+  grid-template-columns: repeat(4, 130px);
 }
 
 .--btn-border-country {
