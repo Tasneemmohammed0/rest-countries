@@ -42,8 +42,7 @@ export const loadSearchResults = function (query) {
 export const loadFilterResults = function (selected) {
   const filterResults = countries.filter((country) => {
     console.log(country.region);
-    if (country.region === "Filter by Region") return [];
-    else return country.region === selected;
+    return country.region === selected;
   });
   return filterResults;
 };
