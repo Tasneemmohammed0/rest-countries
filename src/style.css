@@ -161,8 +161,8 @@ body {
 /* ===== Detailed page styles ===== */
 .detailed-page {
   position: absolute;
-  z-index: 2;
-  display: none;
+  /* z-index: 2; */
+  /* display: none; */
 }
 .--btn-back {
   position: relative;
