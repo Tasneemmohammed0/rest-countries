@@ -11,6 +11,7 @@ const controlGrid = async function () {
 
     // 2) Rendering the data
     CountryView.renderGrid(model.countries);
+    CountryView.renderGrid(model.countries);
   } catch (error) {
     console.error(error);
   }
