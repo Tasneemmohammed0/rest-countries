@@ -9,6 +9,7 @@ const controlGrid = async function () {
   try {
     // 1) Loading countries data
     await model.getAllCountries();
+    console.log(model.countries);
 
     // 2) Rendering the data
     CountryView.renderGrid(model.countries);
@@ -33,7 +34,11 @@ const controlFilterResults = function () {
   const selected = filterView.getSelectedItem();
   console.log(selected);
   // 2) Loading the results
+  const filterResults = model.loadFilterResults(selected);
   // 3) Rendering the data
+  CountryView.renderGrid(
+    filterResults.length ? filterResults : model.countries
+  );
 };
 
 const eventHandlers = function () {
