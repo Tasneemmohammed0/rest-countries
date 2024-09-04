@@ -12,8 +12,11 @@ class CountryView {
   }
 
   renderDetails(country) {
+    console.log(country.borders); //debug
+
     const markup = this.#generatedetailesMarkup(country); // generate markup
     document.querySelector(".main-page").innerHTML = ""; // empty page container
+    document.querySelector(".country-details-container").innerHTML = "";
     document
       .querySelector(".country-details-container")
       .insertAdjacentHTML("beforeend", markup);
@@ -61,17 +64,29 @@ class CountryView {
 				<p><strong>Tob Level Domain:</strong>${country.tld}</p>
 				<p><strong>Currencies:</strong>${Object.values(country.currencies)
           .map((currency) => currency.name)
-          .join(",")}</p>
+          .join(", ")}</p>
 				<p><strong>Languages:</strong>${Object.values(country.languages)
           .map((language) => language)
-          .join(",")}</p>
+          .join(", ")}</p>
 			</div>
 			<div class="border-countries">
 				<strong>Border Countries:</strong> 
-				<button class="button --btn-border-country">Belgium</button>
-				<button class="button --btn-border-country">France</button>
+				${this.#generateBorders(country.borders)}
 			</div>
 		</div>`;
+  }
+
+  #generateBorders(neighbours) {
+    if (!neighbours) return "<p>NONE</p>";
+    else
+      return neighbours
+        .map(
+          (neighbour) =>
+            `<button class="button --btn-border-country">
+							<a href="#${neighbour}">${neighbour}</a>
+						</button>`
+        )
+        .join();
   }
 }
 
