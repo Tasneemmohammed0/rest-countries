@@ -11,10 +11,10 @@ const fetchCountries = async function () {
 
     // 2) Rendering the data
     CountryView.renderGrid(countries);
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 };
 
-// Calling the function to fetch and render countries
-fetchCountries();
+// Show all countries when in the home page
+if (!window.location.hash) fetchCountries();
