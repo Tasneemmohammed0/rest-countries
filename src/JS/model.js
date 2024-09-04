@@ -12,3 +12,21 @@ export const getAllCountries = async function () {
     console.error(error.message);
   }
 };
+
+export const getCountry = async function (hash) {
+  if (!hash) return;
+  try {
+    // fetching data from REST Countires API
+    const response = await fetch(
+      `https://restcountries.com/v3.1/alpha/${hash}`
+    );
+
+    // Handling fetch error
+    if (!response.ok) throw new Error("🚨 Problem getting country details");
+
+    const country = await response.json();
+    return country[0];
+  } catch (error) {
+    console.error(error.message);
+  }
+};
