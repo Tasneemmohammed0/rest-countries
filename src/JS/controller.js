@@ -3,16 +3,14 @@ import searchView from "./Views/searchView.js";
 import SearchView from "./Views/searchView.js";
 import * as model from "./model.js";
 
-let countries = []; // Store all countries data
-
 // function to fetch and render countries data
 const fetchCountries = async function () {
   try {
     // 1) Loading countries data
-    countries = await model.getAllCountries();
+    model.getAllCountries();
 
     // 2) Rendering the data
-    CountryView.renderGrid(countries);
+    CountryView.renderGrid(model.countries);
   } catch (error) {
     console.error(error);
   }
@@ -22,7 +20,6 @@ const controlSearchResults = async function () {
   try {
     // 1) Get query
     const query = searchView.getQuery();
-    console.log(query);
 
     // 2) Load Results
   } catch (error) {
