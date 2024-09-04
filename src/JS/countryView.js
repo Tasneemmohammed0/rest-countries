@@ -1,8 +1,9 @@
 class CountryView {
-  #parentElement = document.querySelector(".container-countries");
+  #parentElement;
 
   // Rendering countries
   renderGrid(countries) {
+    this.#parentElement = document.querySelector(".container-countries");
     countries.forEach((country) => {
       const markup = this.#generateGridMarkup(country);
       this.#parentElement.insertAdjacentHTML("beforeend", markup);
@@ -26,6 +27,7 @@ class CountryView {
 				</div>
 			</div>`;
   }
+
   #generatedetailesMarkup(country) {
     return `
 		<img
