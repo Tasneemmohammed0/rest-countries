@@ -46,6 +46,11 @@ body {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* ===== header styles ===== */
 .header {
   background-color: white;
