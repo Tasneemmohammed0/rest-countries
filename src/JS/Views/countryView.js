@@ -1,8 +1,12 @@
 class CountryView {
-  #parentElement;
+  #parentElement = document.querySelector(".container-countries");
 
   // Rendering countries
   renderGrid(countries) {
+    // Clear main page first
+    this.#clear();
+
+    // Render all countries
     countries.forEach((country) => {
       const markup = this.#generateGridMarkup(country);
       document
@@ -68,12 +72,19 @@ class CountryView {
 				<p><strong>Languages:</strong>${Object.values(country.languages)
           .map((language) => language)
           .join(", ")}</p>
+          </div>
 					<div class="border-countries">
 						<strong>Border Countries:</strong> 
-						${this.#generateBorders(country.borders)}
-					</div>
+            <div class="border-countries-container">${this.#generateBorders(
+              country.borders
+            )}</div>
 			</div>
 		</div>`;
+  }
+
+  // Clear the home page
+  #clear() {
+    this.#parentElement.innerHTML = "";
   }
 
   #generateBorders(neighbours) {

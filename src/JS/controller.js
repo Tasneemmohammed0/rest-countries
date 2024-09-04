@@ -1,20 +1,36 @@
-import CountryView from "./countryView.js";
+import CountryView from "./Views/countryView.js";
+import searchView from "./Views/searchView.js";
+import SearchView from "./Views/searchView.js";
 import * as model from "./model.js";
-
-let countries = []; // Store all countries data
 
 // Render all
 const controlGrid = async function () {
   try {
     // 1) Loading countries data
-    countries = await model.getAllCountries();
+    await model.getAllCountries();
 
     // 2) Rendering the data
-    CountryView.renderGrid(countries);
+    CountryView.renderGrid(model.countries);
   } catch (error) {
     console.error(error);
   }
 };
+
+const controlSearchResults = function () {
+  // 1) get the query
+  const query = searchView.getQuery();
+
+  // 2) Loading the results
+  const searchResults = model.loadSearchResults(query);
+
+  // 3) Rendering the data
+  CountryView.renderGrid(searchResults);
+};
+
+const eventHandlers = function () {
+  searchView.addSearchHandler(controlSearchResults);
+};
+eventHandlers();
 
 // Render details
 const controrlDetail = async function (hash) {
