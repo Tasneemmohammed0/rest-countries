@@ -1,5 +1,5 @@
-
 import CountryView from "./Views/countryView.js";
+import filterView from "./Views/filterView.js";
 import searchView from "./Views/searchView.js";
 import SearchView from "./Views/searchView.js";
 import * as model from "./model.js";
@@ -28,8 +28,17 @@ const controlSearchResults = function () {
   CountryView.renderGrid(searchResults);
 };
 
+const controlFilterResults = function () {
+  // 1) get filter result
+  const selected = filterView.getSelectedItem();
+  console.log(selected);
+  // 2) Loading the results
+  // 3) Rendering the data
+};
+
 const eventHandlers = function () {
   searchView.addSearchHandler(controlSearchResults);
+  filterView.addFilterHandler(controlFilterResults);
 };
 eventHandlers();
 
