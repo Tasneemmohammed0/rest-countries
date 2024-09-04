@@ -9,7 +9,6 @@ const fetchCountries = async function () {
     // 1) Loading countries data
     await model.getAllCountries();
 
-    console.log(model.countries);
     // 2) Rendering the data
     CountryView.renderGrid(model.countries);
   } catch (error) {
@@ -18,18 +17,14 @@ const fetchCountries = async function () {
 };
 
 const controlSearchResults = function () {
-  try {
-    // 1) get the query
-    const query = searchView.getQuery();
+  // 1) get the query
+  const query = searchView.getQuery();
 
-    // 2) Loading the results
-    const searchResults = model.loadSearchResults(query);
+  // 2) Loading the results
+  const searchResults = model.loadSearchResults(query);
 
-    // 3) Rendering the data
-    CountryView.renderGrid(searchResults);
-  } catch (error) {
-    console.error(error);
-  }
+  // 3) Rendering the data
+  CountryView.renderGrid(searchResults);
 };
 
 const eventHandlers = function () {
