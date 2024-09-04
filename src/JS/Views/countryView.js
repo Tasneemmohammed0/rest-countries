@@ -1,9 +1,12 @@
 class CountryView {
-  #parentElement;
+  #parentElement = document.querySelector(".container-countries");
 
   // Rendering countries
   renderGrid(countries) {
-    this.#parentElement = document.querySelector(".container-countries");
+    // Clear main page first
+    this.#clear();
+
+    // Render all countries
     countries.forEach((country) => {
       const markup = this.#generateGridMarkup(country);
       this.#parentElement.insertAdjacentHTML("beforeend", markup);
@@ -57,6 +60,11 @@ class CountryView {
 				<button class="button --btn-border-country">France</button>
 			</div>
 		</div>`;
+  }
+
+  // Clear the home page
+  #clear() {
+    this.#parentElement.innerHTML = "";
   }
 }
 

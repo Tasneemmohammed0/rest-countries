@@ -7,8 +7,9 @@ import * as model from "./model.js";
 const fetchCountries = async function () {
   try {
     // 1) Loading countries data
-    model.getAllCountries();
+    await model.getAllCountries();
 
+    console.log(model.countries);
     // 2) Rendering the data
     CountryView.renderGrid(model.countries);
   } catch (error) {
@@ -16,12 +17,16 @@ const fetchCountries = async function () {
   }
 };
 
-const controlSearchResults = async function () {
+const controlSearchResults = function () {
   try {
-    // 1) Get query
+    // 1) get the query
     const query = searchView.getQuery();
 
-    // 2) Load Results
+    // 2) Loading the results
+    const searchResults = model.loadSearchResults(query);
+
+    // 3) Rendering the data
+    CountryView.renderGrid(searchResults);
   } catch (error) {
     console.error(error);
   }

@@ -13,3 +13,10 @@ export const getAllCountries = async function () {
     console.error(error.message);
   }
 };
+
+export const loadSearchResults = function (query) {
+  const searchResults = countries.filter((country) => {
+    return country.name.common.toLowerCase().startsWith(query.toLowerCase());
+  });
+  return searchResults;
+};
