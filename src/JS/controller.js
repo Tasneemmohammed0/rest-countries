@@ -1,10 +1,11 @@
+
 import CountryView from "./Views/countryView.js";
 import searchView from "./Views/searchView.js";
 import SearchView from "./Views/searchView.js";
 import * as model from "./model.js";
 
-// function to fetch and render countries data
-const fetchCountries = async function () {
+// Render all
+const controlGrid = async function () {
   try {
     // 1) Loading countries data
     await model.getAllCountries();
@@ -32,5 +33,26 @@ const eventHandlers = function () {
 };
 eventHandlers();
 
-// Show all countries when in the home page
-if (!window.location.hash) fetchCountries();
+// Render details
+const controrlDetail = async function (hash) {
+  try {
+    // 1) Loading countries data
+    const country = await model.getCountry(hash);
+    console.log(country);
+    // 2) Rendering the data
+    CountryView.renderDetails(country);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// Render all when the page loads
+(() => {
+  controlGrid();
+})();
+
+window.addEventListener("hashchange", () => {
+  if (!window.location.hash) controlGrid();
+  // Show all countries when in the home page
+  else controrlDetail(window.location.hash.slice(1));
+});
