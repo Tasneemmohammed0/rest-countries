@@ -68,10 +68,10 @@ class CountryView {
 				<p><strong>Languages:</strong>${Object.values(country.languages)
           .map((language) => language)
           .join(", ")}</p>
-			</div>
-			<div class="border-countries">
-				<strong>Border Countries:</strong> 
-				${this.#generateBorders(country.borders)}
+					<div class="border-countries">
+						<strong>Border Countries:</strong> 
+						${this.#generateBorders(country.borders)}
+					</div>
 			</div>
 		</div>`;
   }
@@ -86,7 +86,7 @@ class CountryView {
 							<a href="#${neighbour}">${neighbour}</a>
 						</button>`
         )
-        .join();
+        .join(" ");
   }
 }
 

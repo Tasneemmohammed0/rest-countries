@@ -182,11 +182,10 @@ a {
 /* ===== Country details styles ===== */
 .country-details-container {
   position: relative;
-  margin-left: 3.4rem;
-  margin-top: 5rem;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 5rem 0 5rem 3.4rem;
   column-gap: 80px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
