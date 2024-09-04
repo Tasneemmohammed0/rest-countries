@@ -9,8 +9,6 @@ const controlGrid = async function () {
   try {
     // 1) Loading countries data
     await model.getAllCountries();
-    console.log(model.countries);
-
     // 2) Rendering the data
     CountryView.renderGrid(model.countries);
   } catch (error) {
@@ -32,7 +30,6 @@ const controlSearchResults = function () {
 const controlFilterResults = function () {
   // 1) get filter result
   const selected = filterView.getSelectedItem();
-  console.log(selected);
   // 2) Loading the results
   const filterResults = model.loadFilterResults(selected);
   // 3) Rendering the data
@@ -52,7 +49,6 @@ const controrlDetail = async function (hash) {
   try {
     // 1) Loading countries data
     const country = await model.getCountry(hash);
-    console.log(country);
     // 2) Rendering the data
     CountryView.renderDetails(country);
   } catch (error) {
