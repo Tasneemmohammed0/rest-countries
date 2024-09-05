@@ -175,7 +175,13 @@ a {
   border: 1px solid #ccc;
   border-radius: 0.3rem;
   padding: 8px 25px;
+  /* 
+  display: none; hidden in the main page */
 }
+
+/* .--btn-back .show {
+  display: 1;
+} */
 
 /* ===== Country details styles ===== */
 .country-details-container {
@@ -214,4 +220,15 @@ a {
   border-radius: 0.2rem;
   padding: 6px 25px;
   margin-left: 0.3rem;
+}
+
+/* Responsive design */
+@media screen and (max-width: 631px) {
+  .dark-mode-text {
+    display: none;
+  }
+
+  .--btn-displayMode {
+    font-size: 1.3rem;
+  }
 }

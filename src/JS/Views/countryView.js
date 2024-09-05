@@ -19,6 +19,7 @@ class CountryView {
     const markup = this.#generatedetailesMarkup(country); // generate markup
     document.querySelector(".main-page").innerHTML = ""; // empty page container
     document.querySelector(".country-details-container").innerHTML = "";
+    // document.querySelector(".--btn-back").classList.add("show"); // show the back button
     document
       .querySelector(".country-details-container")
       .insertAdjacentHTML("beforeend", markup);
