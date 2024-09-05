@@ -1,3 +1,4 @@
+import countryView from "./Views/countryView.js";
 import CountryView from "./Views/countryView.js";
 import filterView from "./Views/filterView.js";
 import searchView from "./Views/searchView.js";
@@ -43,9 +44,14 @@ const controlFilterResults = function () {
   );
 };
 
+function goHome() {
+  window.location.href = "";
+}
+
 const eventHandlers = function () {
   searchView.addSearchHandler(controlSearchResults);
   filterView.addFilterHandler(controlFilterResults);
+  countryView.addBackHandler(goHome);
 };
 eventHandlers();
 
