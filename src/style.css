@@ -223,6 +223,8 @@ a {
 }
 
 /* Responsive design */
+
+/* Header */
 @media screen and (max-width: 631px) {
   .dark-mode-text {
     display: none;
@@ -230,5 +232,41 @@ a {
 
   .--btn-displayMode {
     font-size: 1.3rem;
+  }
+}
+
+/*Detailed page*/
+@media screen and (max-width: 1050px) {
+  .country-details-container {
+    margin: 2rem auto;
+    flex-direction: column;
+    column-gap: 10px;
+  }
+
+  .country-details-container .country-info {
+    row-gap: 2px;
+  }
+
+  .border-countries {
+    margin-left: 10px;
+  }
+
+  .border-countries-container {
+    grid-template-columns: repeat(5, 130px);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .country-details-container .country-img {
+    width: 300px;
+    height: 200px;
+  }
+
+  .country-details-container .country-info {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+
+  .border-countries-container {
+    grid-template-columns: repeat(3, 130px);
   }
 }
