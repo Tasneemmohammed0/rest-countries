@@ -38,7 +38,6 @@ body {
 
 .main-page {
   display: 1;
-  z-index: 1;
 }
 
 .button:hover {
@@ -134,7 +133,7 @@ a {
 /* ===== Country grid styles ===== */
 .country-grid {
   width: 270px;
-  height: 350px;
+  height: 370px;
   background-color: white;
   border-radius: 0.5rem;
   transition: transform 0.3s ease;
@@ -165,26 +164,32 @@ a {
 
 /* ===== Detailed page styles ===== */
 .detailed-page {
-  position: absolute;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .--btn-back {
-  position: relative;
-  left: 3.5rem;
+  position: absolute;
+  top: -1rem;
+  left: 4rem;
+  padding: 0.5rem 1.5rem;
+
   background-color: inherit;
   box-shadow: 2px 0px 10px hsl(0, 9%, 87%);
   border: 1px solid #ccc;
   border-radius: 0.3rem;
-  padding: 8px 25px;
 }
 
 /* ===== Country details styles ===== */
 .country-details-container {
-  position: relative;
-  margin: 5rem 0 5rem 3.4rem;
-  column-gap: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  margin: 10rem 0 5rem 3.4rem;
+  column-gap: 80px;
 }
 
 .country-details-container .country-img {
@@ -214,4 +219,55 @@ a {
   border-radius: 0.2rem;
   padding: 6px 25px;
   margin-left: 0.3rem;
+}
+
+/* Responsive design */
+
+/* Header */
+@media screen and (max-width: 631px) {
+  .dark-mode-text {
+    display: none;
+  }
+
+  .--btn-displayMode {
+    font-size: 1.3rem;
+  }
+}
+
+/*Detailed page*/
+@media screen and (max-width: 1050px) {
+  .--btn-back {
+    left: 1rem;
+  }
+  .country-details-container {
+    margin: 2rem auto;
+    flex-direction: column;
+    column-gap: 10px;
+  }
+
+  .country-details-container .country-info {
+    row-gap: 2px;
+  }
+
+  .border-countries {
+    margin-left: 10px;
+  }
+
+  .border-countries-container {
+    grid-template-columns: repeat(5, 130px);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .country-details-container .country-img {
+    width: 300px;
+    height: 200px;
+  }
+  .country-details-container .country-info {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+
+  .border-countries-container {
+    grid-template-columns: repeat(3, 130px);
+  }
 }
