@@ -15,13 +15,13 @@ class CountryView {
     });
   }
 
-  // renderHome() {
-  //   document.querySelector(".detailed-page").innerHTML = ""; // empty details page
-  // }
-
   renderDetails(country) {
     const markup = this.#generatedetailesMarkup(country); // generate markup
     document.querySelector(".main-page").innerHTML = ""; // empty page container
+    const backBtnmarkup = this.#generateBackBtn();
+    document
+      .querySelector(".detailed-page")
+      .insertAdjacentHTML("afterbegin", backBtnmarkup);
     document.querySelector(".country-details-container").innerHTML = "";
     document
       .querySelector(".country-details-container")
@@ -99,6 +99,14 @@ class CountryView {
 						</button>`
         )
         .join(" ");
+  }
+
+  #generateBackBtn() {
+    return `
+       <button class="button --btn-back">
+        <span class="fa-solid fa-arrow-left-long"></span>
+        <span style="margin-left: 0.3rem">Back</span>
+      </button>`;
   }
 
   addBackHandler(handler) {

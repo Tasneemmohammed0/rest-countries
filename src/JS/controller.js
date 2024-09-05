@@ -51,7 +51,6 @@ function goHome() {
 const eventHandlers = function () {
   searchView.addSearchHandler(controlSearchResults);
   filterView.addFilterHandler(controlFilterResults);
-  countryView.addBackHandler(goHome);
 };
 eventHandlers();
 
@@ -62,6 +61,9 @@ const controrlDetail = async function (hash) {
     const country = await model.getCountry(hash);
     // 2) Rendering the data
     CountryView.renderDetails(country);
+
+    // 3) control back btn
+    countryView.addBackHandler(goHome);
   } catch (error) {
     console.error(error);
   }
