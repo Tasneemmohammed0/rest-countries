@@ -12,6 +12,18 @@ class SearchView {
       handler();
     });
   }
+
+  isEmpty() {
+    const inputValue = this.#parentElement
+      .querySelector(".search-input")
+      .value.trim();
+
+    if (inputValue === "") {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 export default new SearchView();

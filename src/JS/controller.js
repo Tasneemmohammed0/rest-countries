@@ -1,5 +1,5 @@
-
 import CountryView from "./Views/countryView.js";
+import filterView from "./Views/filterView.js";
 import searchView from "./Views/searchView.js";
 import SearchView from "./Views/searchView.js";
 import * as model from "./model.js";
@@ -9,7 +9,6 @@ const controlGrid = async function () {
   try {
     // 1) Loading countries data
     await model.getAllCountries();
-
     // 2) Rendering the data
     CountryView.renderGrid(model.countries);
   } catch (error) {
@@ -26,10 +25,27 @@ const controlSearchResults = function () {
 
   // 3) Rendering the data
   CountryView.renderGrid(searchResults);
+
+  // 4) Check data filter
+  if (searchView.isEmpty()) {
+    controlFilterResults();
+  }
+};
+
+const controlFilterResults = function () {
+  // 1) get filter result
+  const selected = filterView.getSelectedItem();
+  // 2) Loading the results
+  const filterResults = model.loadFilterResults(selected);
+  // 3) Rendering the data
+  CountryView.renderGrid(
+    filterResults.length ? filterResults : model.countries
+  );
 };
 
 const eventHandlers = function () {
   searchView.addSearchHandler(controlSearchResults);
+  filterView.addFilterHandler(controlFilterResults);
 };
 eventHandlers();
 
@@ -38,7 +54,6 @@ const controrlDetail = async function (hash) {
   try {
     // 1) Loading countries data
     const country = await model.getCountry(hash);
-    console.log(country);
     // 2) Rendering the data
     CountryView.renderDetails(country);
   } catch (error) {

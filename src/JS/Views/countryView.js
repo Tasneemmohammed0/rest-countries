@@ -1,4 +1,3 @@
-
 class CountryView {
   #parentElement = document.querySelector(".container-countries");
 
@@ -17,8 +16,6 @@ class CountryView {
   }
 
   renderDetails(country) {
-    console.log(country.borders); //debug
-
     const markup = this.#generatedetailesMarkup(country); // generate markup
     document.querySelector(".main-page").innerHTML = ""; // empty page container
     document.querySelector(".country-details-container").innerHTML = "";
@@ -47,7 +44,6 @@ class CountryView {
   }
 
   #generatedetailesMarkup(country) {
-    console.log(country);
     return `
 		<img
 			class="country-img"

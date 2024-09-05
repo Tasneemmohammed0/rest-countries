@@ -14,7 +14,6 @@ export const getAllCountries = async function () {
   }
 };
 
-
 export const getCountry = async function (hash) {
   if (!hash) return;
   try {
@@ -38,4 +37,11 @@ export const loadSearchResults = function (query) {
     return country.name.common.toLowerCase().startsWith(query.toLowerCase());
   });
   return searchResults;
+};
+
+export const loadFilterResults = function (selected) {
+  const filterResults = countries.filter((country) => {
+    return country.region === selected;
+  });
+  return filterResults;
 };
