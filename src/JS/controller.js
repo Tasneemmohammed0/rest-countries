@@ -25,6 +25,11 @@ const controlSearchResults = function () {
 
   // 3) Rendering the data
   CountryView.renderGrid(searchResults);
+
+  // 4) Check data filter
+  if (searchView.isEmpty()) {
+    controlFilterResults();
+  }
 };
 
 const controlFilterResults = function () {
