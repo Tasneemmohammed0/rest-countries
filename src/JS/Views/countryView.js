@@ -112,6 +112,15 @@ class CountryView {
   addBackHandler(handler) {
     document.querySelector(".--btn-back").addEventListener("click", handler);
   }
+
+  addThemeHandler() {
+    document
+      .querySelector(".--btn-displayMode")
+      .addEventListener("click", (event) => {
+        event.preventDefault();
+        document.querySelector("body").classList.toggle("dark-mode");
+      });
+  }
 }
 
 export default new CountryView();

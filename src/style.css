@@ -174,12 +174,12 @@ a {
   position: absolute;
   top: -1rem;
   left: 4rem;
-  padding: 0.5rem 1.5rem;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
 
   background-color: inherit;
-  box-shadow: 2px 0px 10px hsl(0, 9%, 87%);
-  border: 1px solid #ccc;
-  border-radius: 0.3rem;
+  box-shadow: 2px 0px 10px hsl(0, 2%, 70%);
+  border: none;
 }
 
 /* ===== Country details styles ===== */
@@ -209,6 +209,8 @@ a {
 .border-countries-container {
   display: grid;
   grid-template-columns: repeat(4, 130px);
+  column-gap: 1px;
+  row-gap: 2px;
 }
 
 .--btn-border-country {
@@ -219,6 +221,43 @@ a {
   border-radius: 0.2rem;
   padding: 6px 25px;
   margin-left: 0.3rem;
+}
+
+/* ===== Dark mode ===== */
+.dark-mode {
+  background-color: var(--very-dark-blue);
+  color: white;
+  .header {
+    background-color: var(--dark-blue);
+    box-shadow: 1px 0px 10px hsl(0, 0%, 11%);
+  }
+  .search {
+    background-color: var(--dark-blue);
+    box-shadow: 1px 0px 10px hsl(0, 0%, 11%);
+  }
+  .search-input {
+    background-color: var(--dark-blue);
+    color: white;
+  }
+  .select-filter {
+    background-color: var(--dark-blue);
+    box-shadow: 3px 0px 10px hsl(0, 0%, 11%);
+    color: white;
+  }
+  .country-grid {
+    background-color: var(--dark-blue);
+  }
+  .--btn-back {
+    color: white;
+    box-shadow: 1px 0px 10px hsl(0, 0%, 11%);
+  }
+  .--btn-border-country {
+    background-color: var(--dark-blue);
+    color: white;
+    border: none;
+    box-shadow: none;
+    box-shadow: 1.5px 0px 10px hsl(0, 1%, 14%);
+  }
 }
 
 /* Responsive design */
