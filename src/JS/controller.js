@@ -44,19 +44,8 @@ const controlFilterResults = function () {
   );
 };
 
-function goHome() {
-  window.location.href = "";
-}
-
-const eventHandlers = function () {
-  searchView.addSearchHandler(controlSearchResults);
-  filterView.addFilterHandler(controlFilterResults);
-  countryView.addThemeHandler();
-};
-eventHandlers();
-
 // Render details
-const controrlDetail = async function (hash) {
+const controlDetail = async function (hash) {
   try {
     // 1) Loading countries data
     const country = await model.getCountry(hash);
@@ -70,6 +59,17 @@ const controrlDetail = async function (hash) {
   }
 };
 
+function goHome() {
+  window.location.href = "";
+}
+
+const eventHandlers = function () {
+  searchView.addSearchHandler(controlSearchResults);
+  filterView.addFilterHandler(controlFilterResults);
+  countryView.addThemeHandler();
+};
+eventHandlers();
+
 // Render all when the page loads
 (() => {
   controlGrid();
@@ -79,6 +79,6 @@ const controrlDetail = async function (hash) {
   window.addEventListener(event, () => {
     if (!window.location.hash) controlGrid();
     // Show all countries when in the home page
-    else controrlDetail(window.location.hash.slice(1));
+    else controlDetail(window.location.hash.slice(1));
   });
 });
