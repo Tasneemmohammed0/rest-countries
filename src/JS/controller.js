@@ -51,6 +51,7 @@ function goHome() {
 const eventHandlers = function () {
   searchView.addSearchHandler(controlSearchResults);
   filterView.addFilterHandler(controlFilterResults);
+  countryView.addThemeHandler();
 };
 eventHandlers();
 
@@ -74,8 +75,10 @@ const controrlDetail = async function (hash) {
   controlGrid();
 })();
 
-window.addEventListener("hashchange", () => {
-  if (!window.location.hash) controlGrid();
-  // Show all countries when in the home page
-  else controrlDetail(window.location.hash.slice(1));
+["hashchange", "load"].forEach((event) => {
+  window.addEventListener(event, () => {
+    if (!window.location.hash) controlGrid();
+    // Show all countries when in the home page
+    else controrlDetail(window.location.hash.slice(1));
+  });
 });
