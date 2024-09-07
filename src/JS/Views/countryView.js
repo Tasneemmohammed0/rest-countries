@@ -3,7 +3,7 @@ class CountryView {
 
   // Rendering countries
   renderGrid(countries) {
-    // Clear main page first
+    // Clear container first
     this.#clear();
 
     // Render all countries
@@ -119,6 +119,12 @@ class CountryView {
       .addEventListener("click", (event) => {
         event.preventDefault();
         document.querySelector("body").classList.toggle("dark-mode");
+
+        // Save the dark mode state to local storage
+        const isDarkMode = document
+          .querySelector("body")
+          .classList.contains("dark-mode");
+        localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
       });
   }
 }

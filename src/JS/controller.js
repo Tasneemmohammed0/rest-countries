@@ -52,10 +52,23 @@ const controlDetail = async function (hash) {
     // 2) Rendering the data
     CountryView.renderDetails(country);
 
+    controlStoredTheme();
+
     // 3) control back btn
     countryView.addBackHandler(goHome);
   } catch (error) {
     console.error(error);
+  }
+};
+
+const controlStoredTheme = function () {
+  const darkMode = localStorage.getItem("darkMode");
+  console.log(darkMode);
+
+  if (darkMode == "enabled") {
+    document.querySelector("body").classList.add("dark-mode");
+  } else {
+    document.querySelector("body").classList.remove("dark-mode");
   }
 };
 
@@ -67,6 +80,7 @@ const eventHandlers = function () {
   searchView.addSearchHandler(controlSearchResults);
   filterView.addFilterHandler(controlFilterResults);
   countryView.addThemeHandler();
+  controlStoredTheme();
 };
 eventHandlers();
 
