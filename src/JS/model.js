@@ -12,7 +12,6 @@ export const getAllCountries = async function () {
     if (!response.ok) throw new Error("🚨 Problem getting countries data");
 
     state.countries = await response.json();
-    console.log(state.countries);
   } catch (error) {
     console.error(error.message);
   }
@@ -38,9 +37,11 @@ export const getCountry = async function (hash) {
 
 // Load Search results based on query
 export const loadSearchResults = function (query) {
+  // if filter is applied search from filtered countries
   const searchFrom = state.filteredCountries.length
     ? state.filteredCountries
     : state.countries;
+
   return searchFrom.filter((country) =>
     country.name.common.toLowerCase().startsWith(query.toLowerCase())
   );
@@ -52,6 +53,7 @@ export const loadFilterResults = function (selected) {
     return country.region === selected;
   });
 
+  // if there is filter applied return filtered countries
   return state.filteredCountries.length
     ? state.filteredCountries
     : state.countries;

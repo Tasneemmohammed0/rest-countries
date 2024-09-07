@@ -1,8 +1,6 @@
 import countryView from "./Views/countryView.js";
-import CountryView from "./Views/countryView.js";
 import filterView from "./Views/filterView.js";
 import searchView from "./Views/searchView.js";
-import SearchView from "./Views/searchView.js";
 import * as model from "./model.js";
 
 // Render all
@@ -11,8 +9,9 @@ const controlGrid = async function () {
     // 1) Loading countries data
     await model.getAllCountries();
 
-    // render all countries
+    // 2) render countries
     controlFilterResults();
+
     controlSearchResults();
   } catch (error) {
     console.error(error);
@@ -27,7 +26,7 @@ const controlSearchResults = function () {
   const searchResults = model.loadSearchResults(query);
 
   // 3) Rendering the data
-  CountryView.renderGrid(searchResults);
+  countryView.renderGrid(searchResults);
 
   // 4) Check data filter
   if (searchView.isEmpty()) {
@@ -39,11 +38,11 @@ const controlFilterResults = function () {
   // 1) get filter result
   const selected = filterView.getSelectedItem();
 
-  // 3) Load the filter results
+  // 2) Load the filter results
   const filterResults = model.loadFilterResults(selected);
-  console.log(filterResults);
-  // 5) Render the filter results
-  CountryView.renderGrid(filterResults);
+
+  // 3) Render the filter results
+  countryView.renderGrid(filterResults);
 };
 
 // Render details
@@ -51,21 +50,20 @@ const controlDetail = async function (hash) {
   try {
     // 1) Loading countries data
     const country = await model.getCountry(hash);
+
     // 2) Rendering the data
-    CountryView.renderDetails(country);
+    countryView.renderDetails(country);
 
-    controlStoredTheme();
-
-    // 3) control back btn
+    // 3) control back button
     countryView.addBackHandler(goHome);
   } catch (error) {
     console.error(error);
   }
 };
 
+// Get current theme from local storage
 const controlStoredTheme = function () {
   const darkMode = localStorage.getItem("darkMode");
-  console.log(darkMode);
 
   if (darkMode == "enabled") {
     document.querySelector("body").classList.add("dark-mode");
@@ -76,7 +74,6 @@ const controlStoredTheme = function () {
 
 function goHome() {
   document.location.hash = ""; // Go back to the home page
-  // controlStoredFilter();
 }
 
 const eventHandlers = function () {
