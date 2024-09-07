@@ -8,7 +8,7 @@ class CountryView {
 
     // Clear container first
     this.#clear();
-    console.log(countries);
+
     // Render all countries
     countries.forEach((country) => {
       const markup = this.#generateGridMarkup(country);

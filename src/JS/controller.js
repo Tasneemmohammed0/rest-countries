@@ -41,11 +41,9 @@ const controlFilterResults = function () {
 
   // 3) Load the filter results
   const filterResults = model.loadFilterResults(selected);
-
+  console.log(filterResults);
   // 5) Render the filter results
-  CountryView.renderGrid(
-    filterResults.length ? filterResults : model.state.countries
-  );
+  CountryView.renderGrid(filterResults);
 };
 
 // Render details
