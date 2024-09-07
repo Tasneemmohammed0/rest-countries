@@ -49,5 +49,5 @@ export const loadFilterResults = function (selected) {
   const filterResults = state.countries.filter((country) => {
     return country.region === selected;
   });
-  return filterResults;
+  return filterResults ? filterResults : [];
 };

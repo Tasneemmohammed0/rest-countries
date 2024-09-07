@@ -10,8 +10,10 @@ const controlGrid = async function () {
   try {
     // 1) Loading countries data
     await model.getAllCountries();
-    // 2) Rendering the data
-    CountryView.renderGrid(model.state.countries);
+
+    // render all countries
+    controlFilterResults();
+    controlSearchResults();
   } catch (error) {
     console.error(error);
   }
@@ -36,11 +38,13 @@ const controlSearchResults = function () {
 const controlFilterResults = function () {
   // 1) get filter result
   const selected = filterView.getSelectedItem();
-  // 2) Loading the results
+
+  // 3) Load the filter results
   const filterResults = model.loadFilterResults(selected);
-  // 3) Rendering the data
+
+  // 5) Render the filter results
   CountryView.renderGrid(
-    filterResults.length ? filterResults : model.countries
+    filterResults.length ? filterResults : model.state.countries
   );
 };
 
@@ -73,7 +77,8 @@ const controlStoredTheme = function () {
 };
 
 function goHome() {
-  window.location.href = "";
+  document.location.hash = ""; // Go back to the home page
+  // controlStoredFilter();
 }
 
 const eventHandlers = function () {
@@ -91,7 +96,7 @@ eventHandlers();
 
 ["hashchange", "load"].forEach((event) => {
   window.addEventListener(event, () => {
-    if (!window.location.hash) controlGrid();
+    if (!window.location.hash.slice(1)) controlGrid();
     // Show all countries when in the home page
     else controlDetail(window.location.hash.slice(1));
   });

@@ -3,9 +3,12 @@ class CountryView {
 
   // Rendering countries
   renderGrid(countries) {
+    document.querySelector(".main-page").classList.remove("hidden");
+    document.querySelector(".detailed-page").classList.add("hidden");
+
     // Clear container first
     this.#clear();
-
+    console.log(countries);
     // Render all countries
     countries.forEach((country) => {
       const markup = this.#generateGridMarkup(country);
@@ -17,7 +20,9 @@ class CountryView {
 
   renderDetails(country) {
     const markup = this.#generatedetailesMarkup(country); // generate markup
-    document.querySelector(".main-page").innerHTML = ""; // empty page container
+    // document.querySelector(".main-page").innerHTML = ""; // empty page container
+    document.querySelector(".main-page").classList.add("hidden");
+    document.querySelector(".detailed-page").classList.remove("hidden");
     const backBtnmarkup = this.#generateBackBtn();
     document
       .querySelector(".detailed-page")
@@ -110,7 +115,10 @@ class CountryView {
   }
 
   addBackHandler(handler) {
-    document.querySelector(".--btn-back").addEventListener("click", handler);
+    document.querySelector(".--btn-back").addEventListener("click", () => {
+      document.querySelector(".detailed-page").classList.add("hidden");
+      handler();
+    });
   }
 
   addThemeHandler() {

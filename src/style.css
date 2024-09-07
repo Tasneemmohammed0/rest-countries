@@ -36,10 +36,6 @@ body {
   font-family: Nunito Sans;
 }
 
-.main-page {
-  display: 1;
-}
-
 .button:hover {
   opacity: 0.5;
   cursor: pointer;
@@ -221,6 +217,10 @@ a {
   border-radius: 0.2rem;
   padding: 6px 25px;
   margin-left: 0.3rem;
+}
+
+.hidden {
+  display: none;
 }
 
 /* ===== Dark mode ===== */
