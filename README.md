@@ -1,9 +1,9 @@
 <div align='center'> <h1> Where in the world? 🗺️ </h1> </div>
 
-<h3> *Wanna look-up a country? We got you!* </h3>
+<h3> Wanna look-up a country? We got you! </h3>
 
-<div alifn ='center'>
- ![gif-01](https://cdn.dribbble.com/users/713272/screenshots/3487364/media/1182299841af82d88a2db3507616961a.gif)
+<div align ='center'>
+<img src="https://cdn.dribbble.com/users/713272/screenshots/3487364/media/1182299841af82d88a2db3507616961a.gif" />
 
 </div>
 
