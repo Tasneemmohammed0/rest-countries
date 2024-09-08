@@ -1,6 +1,6 @@
 <div align='center'> <h1> Where in the world? 🗺️ </h1> </div>
 
-<h3> Wanna look-up a country? We got you! </h3>
+<h3 align='center'> Wanna look-up a country? We got you! </h3>
 
 <div align ='center'>
 <img src="https://cdn.dribbble.com/users/713272/screenshots/3487364/media/1182299841af82d88a2db3507616961a.gif" />
@@ -11,10 +11,11 @@
 <div align='center'> <h2> 📝 Overview </h2> </div>
 
 <div align='center'>
-This website is designed to display a list of countries as clickable cards.\
+This website is designed to display a list of countries as clickable cards.
 It was developed as an assignment during our Cairo Summer Training web development training.
 
-When a card is clicked, it expands to reveal additional information about the country. Users can search for specific countries or filter the list by region.\
+When a card is clicked, it expands to reveal additional information about the country. Users can search for specific countries or filter the list by region.
+
 🌜🌞The application also features a dark mode for improved readability in low-light environments
 </div>
 
