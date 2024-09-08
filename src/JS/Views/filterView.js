@@ -6,6 +6,10 @@ class FilterView {
     return query;
   }
 
+  setSelectedItem(selected) {
+    this.#parentElement.value = selected;
+  }
+
   addFilterHandler(handler) {
     this.#parentElement.addEventListener("change", (e) => {
       e.preventDefault();

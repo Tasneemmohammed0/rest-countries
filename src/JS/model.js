@@ -1,5 +1,8 @@
-export let countries = []; // Store all countries data
-
+export let state = {
+  countries: [], // Store all countries data
+  darkMode: false, // Default dark mode state
+  filteredCountries: [],
+};
 export const getAllCountries = async function () {
   try {
     // fetching data from REST Countires API
@@ -8,7 +11,7 @@ export const getAllCountries = async function () {
     // Handling fetch error
     if (!response.ok) throw new Error("🚨 Problem getting countries data");
 
-    countries = await response.json();
+    state.countries = await response.json();
   } catch (error) {
     console.error(error.message);
   }
@@ -32,16 +35,26 @@ export const getCountry = async function (hash) {
   }
 };
 
+// Load Search results based on query
 export const loadSearchResults = function (query) {
-  const searchResults = countries.filter((country) => {
-    return country.name.common.toLowerCase().startsWith(query.toLowerCase());
-  });
-  return searchResults;
+  // if filter is applied search from filtered countries
+  const searchFrom = state.filteredCountries.length
+    ? state.filteredCountries
+    : state.countries;
+
+  return searchFrom.filter((country) =>
+    country.name.common.toLowerCase().startsWith(query.toLowerCase())
+  );
 };
 
+// Load filter results based on selected region
 export const loadFilterResults = function (selected) {
-  const filterResults = countries.filter((country) => {
+  state.filteredCountries = state.countries.filter((country) => {
     return country.region === selected;
   });
-  return filterResults;
+
+  // if there is filter applied return filtered countries
+  return state.filteredCountries.length
+    ? state.filteredCountries
+    : state.countries;
 };

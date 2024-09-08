@@ -3,10 +3,14 @@ class CountryView {
 
   // Rendering countries
   renderGrid(countries) {
-    // Clear main page first
+    // Show main page and hide detailed page
+    document.querySelector(".main-page").classList.remove("hidden");
+    document.querySelector(".detailed-page").classList.add("hidden");
+
+    // Clear container first
     this.#clear();
 
-    // Render all countries
+    // Render  countries
     countries.forEach((country) => {
       const markup = this.#generateGridMarkup(country);
       document
@@ -17,7 +21,12 @@ class CountryView {
 
   renderDetails(country) {
     const markup = this.#generatedetailesMarkup(country); // generate markup
-    document.querySelector(".main-page").innerHTML = ""; // empty page container
+
+    // document.querySelector(".main-page").innerHTML = ""; // empty page container
+
+    // Hide main page and show details page
+    document.querySelector(".main-page").classList.add("hidden");
+    document.querySelector(".detailed-page").classList.remove("hidden");
     const backBtnmarkup = this.#generateBackBtn();
     document
       .querySelector(".detailed-page")
@@ -110,7 +119,9 @@ class CountryView {
   }
 
   addBackHandler(handler) {
-    document.querySelector(".--btn-back").addEventListener("click", handler);
+    document.querySelector(".--btn-back").addEventListener("click", () => {
+      handler();
+    });
   }
 
   addThemeHandler() {
@@ -119,6 +130,12 @@ class CountryView {
       .addEventListener("click", (event) => {
         event.preventDefault();
         document.querySelector("body").classList.toggle("dark-mode");
+
+        // Save the dark mode state to local storage
+        const isDarkMode = document
+          .querySelector("body")
+          .classList.contains("dark-mode");
+        localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
       });
   }
 }
