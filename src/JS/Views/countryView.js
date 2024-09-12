@@ -1,5 +1,7 @@
 class CountryView {
-  #parentElement = document.querySelector(".container-countries");
+  #gridContainer = document.querySelector(".container-countries");
+  #themeButton = document.querySelector(".--btn-displayMode");
+  #bodyElement = document.querySelector("body");
 
   // Rendering countries
   renderGrid(countries) {
@@ -94,7 +96,7 @@ class CountryView {
 
   // Clear the home page
   #clear() {
-    this.#parentElement.innerHTML = "";
+    this.#gridContainer.innerHTML = "";
   }
 
   #generateBorders(neighbours) {
@@ -125,18 +127,34 @@ class CountryView {
   }
 
   addThemeHandler() {
-    document
-      .querySelector(".--btn-displayMode")
-      .addEventListener("click", (event) => {
-        event.preventDefault();
-        document.querySelector("body").classList.toggle("dark-mode");
+    document;
+    this.#themeButton.addEventListener("click", (event) => {
+      event.preventDefault();
 
-        // Save the dark mode state to local storage
-        const isDarkMode = document
-          .querySelector("body")
-          .classList.contains("dark-mode");
-        localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
-      });
+      this.#bodyElement.classList.toggle("dark-mode"); // Toggle body styles
+
+      // Change Button content
+      this.#themeButton.innerHTML = "";
+      if (this.#bodyElement.classList.contains("dark-mode")) {
+        this.#themeButton.insertAdjacentHTML(
+          "beforeend",
+          `<span class="fa-regular fa-sun" style="color: #FFD43B;"></span>
+        		<span class="dark-mode-text">Light Mode</span>`
+        );
+      } else {
+        this.#themeButton.insertAdjacentHTML(
+          "beforeend",
+          `<span class="fa-regular fa-moon"></span>
+        		<span class="dark-mode-text">Dark Mode</span>`
+        );
+      }
+
+      // Save the dark mode state to local storage
+      const isDarkMode = document
+        .querySelector("body")
+        .classList.contains("dark-mode");
+      localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
+    });
   }
 }
 
