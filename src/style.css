@@ -231,6 +231,9 @@ a {
     background-color: var(--dark-blue);
     box-shadow: 1px 0px 10px hsl(0, 0%, 11%);
   }
+  .dark-mode-text {
+    color: white;
+  }
   .search {
     background-color: var(--dark-blue);
     box-shadow: 1px 0px 10px hsl(0, 0%, 11%);
